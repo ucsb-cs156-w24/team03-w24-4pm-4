@@ -1,16 +1,13 @@
 import { ThreeItemsAdminUser } from "stories/pages/Restaurants/RestaurantIndexPage.stories";
 
 const ucsbOranizationFixtures = {
-    oneOrganization:
-    [
-        {
-            "id": 1,
-            "orgCode": "NSU",
-            "orgTranslationShort": "Nikkei Student Union",
-            "orgTranslation": "UCSB Nikkei Student Union",
-            "inactive": false
-        }
-    ],
+    oneOrganization: {
+        "id": 1,
+        "orgCode": "NSU",
+        "orgTranslationShort": "Nikkei Student Union",
+        "orgTranslation": "UCSB Nikkei Student Union",
+        "inactive": false
+    },
 
     threeOrganizations:
     [
