@@ -1,6 +1,6 @@
 import { ThreeItemsAdminUser } from "stories/pages/Restaurants/RestaurantIndexPage.stories";
 
-const ucsbOranizationFixtures = {
+const ucsbOrganizationFixtures = {
     oneOrganization: {
         "id": 1,
         "orgCode": "NSU",
