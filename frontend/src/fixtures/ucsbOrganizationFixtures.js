@@ -1,3 +1,5 @@
+import { ThreeItemsAdminUser } from "stories/pages/Restaurants/RestaurantIndexPage.stories";
+
 const ucsbOranizationFixtures = {
     oneOrganization:
     [
@@ -5,7 +7,8 @@ const ucsbOranizationFixtures = {
             "id": 1,
             "orgCode": "NSU",
             "orgTranslationShort": "Nikkei Student Union",
-            "orgTranslation": "UCSB Nikkei Student Union"
+            "orgTranslation": "UCSB Nikkei Student Union",
+            "inactive": false
         }
     ],
 
@@ -15,21 +18,24 @@ const ucsbOranizationFixtures = {
             "id": 1,
             "orgCode": "NSU",
             "orgTranslationShort": "Nikkei Student Union",
-            "orgTranslation": "UCSB Nikkei Student Union"
+            "orgTranslation": "UCSB Nikkei Student Union",
+            "inactive": false
         },
 
         {
             "id": 2,
             "orgCode": "TT",
             "orgTranslationShort": "Theta Tau",
-            "orgTranslation": "UCSB Theta Tau"
+            "orgTranslation": "UCSB Theta Tau",
+            "inactive": true
         },
 
         {
             "id": 3,
             "orgCode": "FIERCE",
             "orgTranslationShort": "UCSB FIERCE",
-            "orgTranslation": "UCSB FIERCE Outreach"
+            "orgTranslation": "UCSB FIERCE Outreach",
+            "inactive": false
         },
     ]
 };
