@@ -37,4 +37,4 @@ const ucsbOrganizationFixtures = {
     ]
 };
 
-export { ucsbOranizationFixtures };
+export { ucsbOrganizationFixtures };
