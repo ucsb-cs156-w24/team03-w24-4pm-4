@@ -9,7 +9,7 @@ const ucsbOrganizationFixtures = {
         "inactive": false
     },
 
-    threeOrganizations:
+    ThreeItemsAdminUser:
     [
         {
             "id": 1,
