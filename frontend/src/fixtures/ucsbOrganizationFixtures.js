@@ -2,7 +2,6 @@ const ucsbOrganizationFixtures = {
     oneOrganization:
     [
         {
-            "id": 1,
             "orgCode": "NSU",
             "orgTranslationShort": "Nikkei Student Union",
             "orgTranslation": "UCSB Nikkei Student Union",
@@ -13,7 +12,6 @@ const ucsbOrganizationFixtures = {
     threeOrganizations:
     [
         {
-            "id": 1,
             "orgCode": "NSU",
             "orgTranslationShort": "Nikkei Student Union",
             "orgTranslation": "UCSB Nikkei Student Union",
@@ -21,7 +19,6 @@ const ucsbOrganizationFixtures = {
         },
 
         {
-            "id": 2,
             "orgCode": "TT",
             "orgTranslationShort": "Theta Tau",
             "orgTranslation": "UCSB Theta Tau",
@@ -29,7 +26,6 @@ const ucsbOrganizationFixtures = {
         },
 
         {
-            "id": 3,
             "orgCode": "FIERCE",
             "orgTranslationShort": "UCSB FIERCE",
             "orgTranslation": "UCSB FIERCE Outreach",
