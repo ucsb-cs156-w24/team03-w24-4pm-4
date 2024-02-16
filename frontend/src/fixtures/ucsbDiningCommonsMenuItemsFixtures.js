@@ -31,4 +31,4 @@ const ucsbDiningCommonsMenuItemsFixtures = {
     ]
 };
 
-export { restaurantFixtures };
+export { ucsbDiningCommonsMenuItemsFixtures };
