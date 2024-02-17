@@ -54,7 +54,7 @@ return (
                             id="itemId"
                             type="text"
                             isInvalid={Boolean(errors.itemId)}
-                            {...register("itemId", { required: "Item Id is required" })}
+                            {...register("itemId", { required: "itemId is required." })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.itemId?.message}
@@ -88,8 +88,8 @@ return (
                         data-testid="MenuItemReviewForm-stars"
                         id="stars"
                         type="text"
-                        isInvalid={Boolean(errors.itemId)}
-                        {...register("stars", { required: "Stars is required" })}
+                        isInvalid={Boolean(errors.stars)}
+                        {...register("stars", { required: "stars is required." })}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.stars?.message}
