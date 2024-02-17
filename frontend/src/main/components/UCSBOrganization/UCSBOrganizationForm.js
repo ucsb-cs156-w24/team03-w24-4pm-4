@@ -71,24 +71,12 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
 
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="inactive">inactive</Form.Label>
-                <Form.Control
+                <Form.Check
                     data-testid="UCSBOrganizationForm-inactive"
                     id="inactive"
-                    type="boolean"
-                    isInvalid={Boolean(errors.inactive)}
-                    {...register("inactive", {
-                        required: true,
-                        validate: (value) => {
-                            if(typeof value === 'boolean') {
-                                return true;
-                            }
-                        }
-                    })}
+                    type="switch"
+                    {...register("inactive")}
                 />
-                <Form.Control.Feedback type="invalid">
-                    {errors.inactive && 'inactive is required.'}
-                    {errors.inactive?.validate === 'boolean' && 'The input should be just true or false'}
-                </Form.Control.Feedback>
             </Form.Group>
 
 
@@ -111,3 +99,4 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     )
 
 }
+export default UCSBOrganizationForm

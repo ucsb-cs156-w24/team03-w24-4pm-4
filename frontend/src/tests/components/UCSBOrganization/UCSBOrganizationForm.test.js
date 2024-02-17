@@ -32,9 +32,8 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization} />
             </Router>
         );
-        await screen.findByTestId(/UCSBOrganizationForm-id/);
+        await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
         expect(screen.getByText(/orgCode/)).toBeInTheDocument();
-        expect(screen.getByTestId(/UCSBOrganizationForm-id/)).toHaveValue("1");     //prob dont need
     });
 
 
@@ -55,10 +54,8 @@ describe("UCSBOrganizationForm tests", () => {
         fireEvent.change(orgCodeField, { target: { value: 'bad-input' } });
         fireEvent.change(orgTranslationShort, { target: { value: 'bad-input' } });
         fireEvent.change(orgTranslation, { target: {value: 'bad-input' } });
-        fireEvent.change(inactive, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
-        await screen.findByText(/The input should be just true or false/);
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -68,6 +65,7 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm />
             </Router>
         );
+        
         await screen.findByTestId("UCSBOrganizationForm-submit");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
@@ -76,7 +74,6 @@ describe("UCSBOrganizationForm tests", () => {
         await screen.findByText(/orgCode is required./);
         expect(screen.getByText(/orgTranslationShort is required./)).toBeInTheDocument();
         expect(screen.getByText(/orgTranslation is required./)).toBeInTheDocument();
-        expect(screen.getByText(/inactive is required./)).toBeInTheDocument();
 
     });
 
@@ -102,12 +99,10 @@ describe("UCSBOrganizationForm tests", () => {
         fireEvent.change(orgCodeField, { target: { value: 'NSU' } });
         fireEvent.change(orgTranslationShort, { target: { value: 'Nikkei Student Union' } });
         fireEvent.change(orgTranslation, { target: {value: 'UCSB Nikkei Student Union' } });
-        fireEvent.change(inactive, { target: { value: 'false' } });
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
-        expect(screen.queryByText(/The input should be just true or false/)).not.toBeInTheDocument();
 
     });
 
