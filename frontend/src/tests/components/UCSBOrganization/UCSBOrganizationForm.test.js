@@ -14,41 +14,42 @@ jest.mock('react-router-dom', () => ({
 describe("UCSBOrganizationForm tests", () => {
 
     test("renders correctly", async () => {
-
         render(
             <Router  >
                 <UCSBOrganizationForm />
             </Router>
         );
+
         await screen.findByText(/orgCode/);
-        await screen.findByText(/Create/);
+        expect(screen.getByText(/orgTranslationShort/)).toBeInTheDocument();
+        expect(screen.getByText('orgTranslation')).toBeInTheDocument();
+        expect(screen.getByText(/inactive/)).toBeInTheDocument();
     });
 
 
     test("renders correctly when passing in a UCSBOrganization", async () => {
-
         render(
             <Router  >
                 <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization} />
             </Router>
         );
+
         await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
         expect(screen.getByText(/orgCode/)).toBeInTheDocument();
     });
 
 
     test("Correct Error messsages on bad input", async () => {
-
         render(
             <Router  >
                 <UCSBOrganizationForm />
             </Router>
         );
+
         await screen.findByTestId("UCSBOrganizationForm-orgCode");
         const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
         const orgTranslationShort = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslation = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
-        const inactive = screen.getByTestId("UCSBOrganizationForm-inactive");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
         fireEvent.change(orgCodeField, { target: { value: 'bad-input' } });
@@ -65,8 +66,8 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm />
             </Router>
         );
-        
-        await screen.findByTestId("UCSBOrganizationForm-submit");
+
+        await screen.findByTestId("UCSBOrganizationForm-orgCode");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
         fireEvent.click(submitButton);
@@ -81,19 +82,18 @@ describe("UCSBOrganizationForm tests", () => {
 
         const mockSubmitAction = jest.fn();
 
-
         render(
             <Router  >
                 <UCSBOrganizationForm submitAction={mockSubmitAction} />
             </Router>
         );
+
         await screen.findByTestId("UCSBOrganizationForm-orgCode");
 
         await screen.findByTestId("UCSBOrganizationForm-orgCode");
         const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
         const orgTranslationShort = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslation = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
-        const inactive = screen.getByTestId("UCSBOrganizationForm-inactive");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
         fireEvent.change(orgCodeField, { target: { value: 'NSU' } });
@@ -101,7 +101,13 @@ describe("UCSBOrganizationForm tests", () => {
         fireEvent.change(orgTranslation, { target: {value: 'UCSB Nikkei Student Union' } });
         fireEvent.click(submitButton);
 
+
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+
+        expect(screen.queryByText(/orgCode is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/orgTranslationShort is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/orgTranslation is required./)).not.toBeInTheDocument();
+
 
 
     });
@@ -114,6 +120,7 @@ describe("UCSBOrganizationForm tests", () => {
                 <UCSBOrganizationForm />
             </Router>
         );
+
         await screen.findByTestId("UCSBOrganizationForm-cancel");
         const cancelButton = screen.getByTestId("UCSBOrganizationForm-cancel");
 
