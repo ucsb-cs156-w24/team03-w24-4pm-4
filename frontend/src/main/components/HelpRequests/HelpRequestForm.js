@@ -61,7 +61,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requesterEmail && 'Requester Email is required.'}
-                            {errors.requesterEmail?.type == 'pattern' && 'Requester email must be a valid email.'}
+                            {errors.requesterEmail?.type === 'pattern' && 'Requester email must be a valid email.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -84,7 +84,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.teamId && 'Team ID is required. '}
-                            {errors.teamId?.type == 'pattern' && 'Team ID must be a valid team id.'}
+                            {errors.teamId?.type === 'pattern' && 'Team ID must be a valid team id.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
