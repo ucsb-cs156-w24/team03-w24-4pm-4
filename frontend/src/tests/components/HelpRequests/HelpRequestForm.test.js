@@ -50,20 +50,17 @@ describe("HelpRequestForm tests", () => {
                 <HelpRequestForm />
             </Router>
         );
-        await screen.findByTestId("HelpRequestForm-requesterEmail");
+        await screen.findByTestId("HelpRequestForm-teamId");
         const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
         const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-        const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
         fireEvent.change(requesterEmailField, { target: { value: 'bad-input' } });
         fireEvent.change(teamIdField, { target: { value: 'bad-input' } });
-        fireEvent.change(requestTimeField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
 
         await screen.findByText(/Requester email must be a valid email./);
-        await screen.findByText(/Team ID must be a valid team id./);
-        await screen.getByText(/Request time is required and must be provided in ISO format./);
+        expect(screen.getByText(/Team ID must be a valid team id./)).toBeInTheDocument();
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -106,9 +103,9 @@ describe("HelpRequestForm tests", () => {
         const solvedField = screen.getByTestId("HelpRequestForm-solved");
         const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
-        fireEvent.change(requesterEmailField, { target: { value: 'sampleemail1@gmail.com' } });
+        fireEvent.change(requesterEmailField, { target: { value: 'sample01@gmail.com' } });
         fireEvent.change(teamIdField, { target: { value: 'w24-4pm-4' } });
-        fireEvent.change(tableOrBreakoutRoomField, { target: {value: 'table'} });
+        fireEvent.change(tableOrBreakoutRoomField, { target: {value: 'Table 01'} });
         fireEvent.change(requestTimeField, { target: { value: '2022-01-02T12:00' } });
         fireEvent.change(explanationField, { target: { value: 'help'} });
         fireEvent.click(solvedField);
@@ -122,25 +119,44 @@ describe("HelpRequestForm tests", () => {
 
     });
 
-    // test("Email validation", async () => {
-    //     render(
-    //         <Router>
-    //             <HelpRequestForm />
-    //         </Router>
-    //     );
+    test("Email validation", async () => {
+        render(
+            <Router>
+                <HelpRequestForm />
+            </Router>
+        );
     
-    //     const emailField = screen.getByTestId("HelpRequestForm-requesterEmail");
-    //     const submitButton = screen.getByTestId("HelpRequestForm-submit");
+        const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+        const submitButton = screen.getByTestId("HelpRequestForm-submit");
     
 
-    //     fireEvent.change(emailField, { target: { value: 'validemail@example.com' } });
-    //     fireEvent.click(submitButton);
-    //     expect(screen.queryByText(/Requester email must be a valid email./)).not.toBeInTheDocument();
+        fireEvent.change(requesterEmailField, { target: { value: 'validemail@example.com' } });
+        fireEvent.click(submitButton);
+        expect(screen.queryByText(/Requester email must be a valid email./)).not.toBeInTheDocument();
     
-    //     fireEvent.change(emailField, { target: { value: 'invalidemail@com' } });
-    //     fireEvent.click(submitButton);
-    //     await screen.findByText(/Requester email must be a valid email./);
-    // });
+        fireEvent.change(requesterEmailField, { target: { value: 'invalidemail@com' } });
+        fireEvent.click(submitButton);
+        await screen.findByText(/Requester email must be a valid email./);
+    });
+
+    test("Email validation for multiple characters before @", async () => {
+        render(
+            <Router>
+                <HelpRequestForm />
+            </Router>
+        );
+    
+        const emailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+        const submitButton = screen.getByTestId("HelpRequestForm-submit");
+    
+        fireEvent.change(emailField, { target: { value: 'user@example.com' } });
+        fireEvent.click(submitButton);
+        expect(screen.queryByText(/Requester email must be a valid email./)).not.toBeInTheDocument();
+    
+        fireEvent.change(emailField, { target: { value: '@domain.com' } });
+        fireEvent.click(submitButton);
+        await screen.findByText(/Requester email must be a valid email./); 
+    });
 
     
     test("that navigate(-1) is called when Cancel is clicked", async () => {

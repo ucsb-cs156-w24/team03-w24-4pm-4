@@ -57,7 +57,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             id="requesterEmail"
                             type="text"
                             isInvalid={Boolean(errors.requesterEmail)}
-                            {...register("requesterEmail", { required: true, pattern: email_regex  })}
+                            {...register("requesterEmail", {required: true, pattern: email_regex  })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.requesterEmail && 'Requester Email is required.'}
