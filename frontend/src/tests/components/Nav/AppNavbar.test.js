@@ -185,10 +185,10 @@ describe("AppNavbar tests", () => {
             </QueryClientProvider>
         );
 
-        await screen.findByText("MenuItemReview");
-        const link = screen.getByText("MenuItemReview");
+        await screen.findByText("Menu Item Review");
+        const link = screen.getByText("Menu Item Review");
         expect(link).toBeInTheDocument();
-        expect(link.getAttribute("href")).toBe("/menuitemreview");
+        expect(link.getAttribute("href")).toBe("/MenuItemReview");
     });
 
     test("Restaurant, MenuItemReview, and UCSBDates links do NOT show when not logged in", async () => {
