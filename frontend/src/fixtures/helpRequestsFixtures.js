@@ -1,7 +1,7 @@
-const helpRequestFixtures = {
+const helpRequestsFixtures = {
     oneRequest: {
         "id": 1,
-        "requesterEmail": "string",
+        "requesterEmail": "sampleemail1@gmail.com",
         "teamId": "string",
         "tableOrBreakoutRoom": "string",
         "requestTime": "2024-02-14T02:13:33.833Z",
@@ -11,8 +11,8 @@ const helpRequestFixtures = {
     threeRequests: [
         {
             "id": 1,
-            "requesterEmail": "string",
-            "teamId": "string",
+            "requesterEmail": "sampleemail2@gmail.com",
+            "teamId": "w24-4pm-1",
             "tableOrBreakoutRoom": "string",
             "requestTime": "2024-02-14T02:13:33.833Z",
             "explanation": "string",
@@ -20,8 +20,8 @@ const helpRequestFixtures = {
         },
         {
             "id": 2,
-            "requesterEmail": "strinag",
-            "teamId": "stering",
+            "requesterEmail": "sampleemail3@gmail.com",
+            "teamId": "w24-4pm-2",
             "tableOrBreakoutRoom": "sstring",
             "requestTime": "2024-03-14T02:13:23.833Z",
             "explanation": "strings",
@@ -29,8 +29,8 @@ const helpRequestFixtures = {
         },
         {
             "id": 3,
-            "requesterEmail": "strinag",
-            "teamId": "strieng",
+            "requesterEmail": "sampleemail4@gmail.com",
+            "teamId": "w24-4pm-3",
             "tableOrBreakoutRoom": "strasing",
             "requestTime": "2024-02-14T02:13:13.833Z",
             "explanation": "strisdang",
@@ -42,4 +42,4 @@ const helpRequestFixtures = {
 };
 
 
-export { helpRequestFixtures };
+export { helpRequestsFixtures };
