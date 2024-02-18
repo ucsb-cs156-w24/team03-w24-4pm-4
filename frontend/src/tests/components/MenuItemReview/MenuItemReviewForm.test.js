@@ -109,6 +109,31 @@ describe("MenuItemReviewForm tests", () => {
 
     });
 
+    test("Correct Error messsages on bad inputs", async () => {
+
+        render(
+            <Router  >
+                <MenuItemReviewForm />
+            </Router>
+        );
+        await screen.findByTestId("MenuItemReviewForm-reviewerEmail");
+
+        const itemIdField = screen.getByTestId("MenuItemReviewForm-itemId");
+        const starsField = screen.getByTestId("MenuItemReviewForm-stars");
+        const dateReviewedField = screen.getByTestId("MenuItemReviewForm-dateReviewed");
+        const submitButton = screen.getByTestId("MenuItemReviewForm-submit");
+
+        fireEvent.change(itemIdField, { target: { value: 'bad-input' } });
+        fireEvent.change(starsField, { target: { value: 'bad-input' } });
+        fireEvent.change(starsField, { target: { value: '-6' } });
+        fireEvent.change(starsField, { target: { value: '55' } });
+        fireEvent.change(dateReviewedField, { target: { value: 'bad-input' } });
+        fireEvent.click(submitButton);
+
+        await screen.findByText(/stars is required.Stars must be between 0-5/);
+
+    });
+
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {
 
@@ -127,5 +152,4 @@ describe("MenuItemReviewForm tests", () => {
     });
 
 });
-
 

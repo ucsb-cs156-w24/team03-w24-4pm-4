@@ -53,7 +53,7 @@ describe("MenuItemReviewCreatePage tests", () => {
     });
 
 
-    test("on submit, makes request to backend, and redirects to /menuitemreview", async () => {
+    test("on submit, makes request to backend, and redirects to /MenuItemReview", async () => {
 
         const queryClient = new QueryClient();
         const menuitemreview = {
@@ -65,7 +65,7 @@ describe("MenuItemReviewCreatePage tests", () => {
             dateReviewed: "2022-02-02T00:00"
         };
 
-        axiosMock.onPost("/api/menuitemreview/post").reply(202, menuitemreview);
+        axiosMock.onPost("/api/MenuItemReview/post").reply(202, menuitemreview);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -116,7 +116,7 @@ describe("MenuItemReviewCreatePage tests", () => {
 
         // assert - check that the toast was called with the expected message
         expect(mockToast).toBeCalledWith("New menu item review Created - id: 6 itemId: 20");
-        expect(mockNavigate).toBeCalledWith({ "to": "/menuitemreview" });
+        expect(mockNavigate).toBeCalledWith({ "to": "/MenuItemReview" });
     });
 
 });

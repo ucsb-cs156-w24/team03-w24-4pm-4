@@ -21,7 +21,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
+    const stars_regex = /^[0-5]$/i;
 
 return (
 
@@ -89,10 +89,11 @@ return (
                         id="stars"
                         type="text"
                         isInvalid={Boolean(errors.stars)}
-                        {...register("stars", { required: "stars is required." })}
+                        {...register("stars", { required: true, pattern: stars_regex })}
                     />
                     <Form.Control.Feedback type="invalid">
-                        {errors.stars?.message}
+                        {errors.stars && 'stars is required.'}
+                        {errors.stars?.type === 'pattern' && 'Stars must be between 0-5'}
                     </Form.Control.Feedback>
                 </Form.Group>
             </Col>
