@@ -88,7 +88,7 @@ return (
                         data-testid="MenuItemReviewForm-stars"
                         id="stars"
                         type="text"
-                        isInvalid={Boolean(errors.itemId)}
+                        isInvalid={Boolean(errors.stars)}
                         {...register("stars", { required: "stars is required." })}
                     />
                     <Form.Control.Feedback type="invalid">
