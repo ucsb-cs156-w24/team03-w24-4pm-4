@@ -76,7 +76,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
                         <Form.Control
-                            data-testid="UCSBOrganizationForm-orgTranslation "
+                            data-testid="UCSBOrganizationForm-orgTranslationn"
                             id="orgTranslation "
                             type="text"
                             isInvalid={Boolean(errors.orgTranslation)}
