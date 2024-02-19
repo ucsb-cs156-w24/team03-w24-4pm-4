@@ -85,8 +85,8 @@ describe("UCSBDiningCommonMenuItems test", () => {
         fireEvent.click(submitButton);
 
         await screen.findByText(/Dining Commons Code is required/);
-        expect(await screen.findByText(/Station is required/)).toBeInTheDocument();
-        expect(await screen.getByText(/Name is required/)).toBeInTheDocument();
+        expect(screen.getByText(/Station is required/)).toBeInTheDocument();
+        expect(screen.getByText(/Name is required/)).toBeInTheDocument();
 
         const nameInput = screen.getByTestId(`${testId}-name`);
         fireEvent.change(nameInput, {target: {value: "a".repeat(41)}});
