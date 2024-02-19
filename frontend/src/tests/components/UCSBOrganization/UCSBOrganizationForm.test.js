@@ -84,7 +84,6 @@ describe("UCSBOrganization tests", () => {
         expect(screen.queryByText(/orgCode is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/orgTranslationShort is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/orgTranslation is required./)).not.toBeInTheDocument();
-        expect(screen.queryByTestId(/UCSBOrganizationForm-inactive/))
     });
 
 
