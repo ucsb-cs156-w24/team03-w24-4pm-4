@@ -1,4 +1,4 @@
-import { render, waitFor, fireEvent, screen, getDefaultNormalizer } from "@testing-library/react";
+import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import HelpRequestCreatePage from "main/pages/HelpRequests/HelpRequestCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
