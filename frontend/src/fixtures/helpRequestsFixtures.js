@@ -11,30 +11,30 @@ const helpRequestsFixtures = {
     threeRequests: [
         {
             "id": 1,
-            "requesterEmail": "sampleemail2@gmail.com",
+            "requesterEmail": "sample11@gmail.com",
             "teamId": "w24-4pm-4",
             "tableOrBreakoutRoom": "string",
             "requestTime": "2024-02-14T02:13:33",
             "explanation": "string",
-            "solved": true
+            "solved": "true"
         },
         {
             "id": 2,
-            "requesterEmail": "sampleemail3@gmail.com",
+            "requesterEmail": "sample12@gmail.com",
             "teamId": "w24-4pm-4",
             "tableOrBreakoutRoom": "sstring",
             "requestTime": "2024-03-14T02:13:23",
             "explanation": "strings",
-            "solved": false
+            "solved": "false"
         },
         {
             "id": 3,
-            "requesterEmail": "sampleemail4@gmail.com",
+            "requesterEmail": "sample13@gmail.com",
             "teamId": "w24-4pm-4",
             "tableOrBreakoutRoom": "strasing",
             "requestTime": "2024-02-14T02:13:13",
             "explanation": "strisdang",
-            "solved": true
+            "solved": "true"
         }
             
     ]
