@@ -21,9 +21,11 @@ describe("UCSBDiningCommonMenuItems test", () => {
 
     test("Renders conrrectly with no initialContents", async () => {
         render(
-            <Router>
-                <UCSBDiningCommonsMenuItemsForm />
-            </Router>
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <UCSBDiningCommonsMenuItemsForm />
+                </Router>
+            </QueryClientProvider>
         )
 
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
@@ -35,9 +37,11 @@ describe("UCSBDiningCommonMenuItems test", () => {
 
     test("Renders correctly when passing in initialContents", async () => {
         render(
+            <QueryClientProvider client={queryClient}>
                 <Router>
                     <UCSBDiningCommonsMenuItemsForm initialContents={ucsbDiningCommonsMenuItemsFixtures.oneMenuItem}/>
                 </Router>
+            </QueryClientProvider>
         );
 
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
@@ -53,9 +57,11 @@ describe("UCSBDiningCommonMenuItems test", () => {
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
+            <QueryClientProvider client={queryClient}>
                 <Router>
                     <UCSBDiningCommonsMenuItemsForm/>
                 </Router>
+            </QueryClientProvider>
         );
         expect(await screen.findByTestId(`${testId}-cancel`)).toBeInTheDocument();
         const cancelButton = screen.getByTestId(`${testId}-cancel`);
@@ -67,9 +73,11 @@ describe("UCSBDiningCommonMenuItems test", () => {
 
     test("That the correct validations are performed", async () => {
         render(
+            <QueryClientProvider client={queryClient}>
                 <Router>
                     <UCSBDiningCommonsMenuItemsForm/>
                 </Router>
+            </QueryClientProvider>
         );
 
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
