@@ -164,15 +164,13 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
 
 
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="solved">Solved</Form.Label>
-                        <Form.Control
+                        <Form.Label htmlFor="solved">Solved?</Form.Label>
+                        <Form.Check
                             data-testid="HelpRequestForm-solved"
                             id="solved"
                             type="switch"
+                            {...register("solved")}
                         />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.solved?.message}
-                        </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
             </Row>

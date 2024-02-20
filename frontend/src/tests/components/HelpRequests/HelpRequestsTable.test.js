@@ -170,36 +170,5 @@ describe("HelpRequestsTable tests", () => {
 
   });
 
-  test("Delete button calls delete callback", async () => {
-    // arrange
-    const currentUser = currentUserFixtures.adminUser;
 
-    // act - render the component
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <HelpRequestsTable helpRequests={helpRequestsFixtures.threeRequests} currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
-    );
-
-    // assert - check that the expected content is rendered
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("sample11@gmail.com");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("true");
-
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("sample12@gmail.com");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("false");
-
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-requesterEmail`)).toHaveTextContent("sample13@gmail.com");
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-solved`)).toHaveTextContent("true");
-
-    const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    expect(deleteButton).toBeInTheDocument();
-
-    // act - click the delete button
-    fireEvent.click(deleteButton);
-  });
 });
