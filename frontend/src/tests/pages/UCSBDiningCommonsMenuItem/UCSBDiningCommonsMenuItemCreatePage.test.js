@@ -32,12 +32,12 @@ describe("UCSBDiningCommonesMenuItemCreatePage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
-    const setupUserOnly = () => {
+    beforeEach(() => {
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
         axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-    };
+    });
 
     test("renders without crashing", () => {
         const queryClient = new QueryClient();
@@ -51,7 +51,7 @@ describe("UCSBDiningCommonesMenuItemCreatePage tests", () => {
     });
 
     test("when you will in the form and hit submit, it makes a request to the backend", async () => {
-        const queryClient = new QueryClient;
+        const queryClient = new QueryClient();
         const ucsbDiningCommonsMenuItem = {
             id: 17,
             diningCommonsCode: "ortega",
