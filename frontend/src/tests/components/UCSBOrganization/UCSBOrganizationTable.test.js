@@ -84,7 +84,7 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("NSU");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`)).toHaveTextContent("Nikkei Student Union");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("UCSB Nikkei Student Union");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("inactive");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("TT");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`)).toHaveTextContent("Theta Tau");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgTranslation`)).toHaveTextContent("UCSB Theta Tau");
@@ -138,9 +138,9 @@ describe("UserTable tests", () => {
     );
 
     await waitFor(() => { expect(screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-orgCode`)).toHaveTextContent("NSU"); });
-    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-orgTranslationShort')).toHaveTextContent("Nikkei Student Union");
-    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-orgTranslation')).toHaveTextContent("UCSB Nikkei Student Union");
-    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-inactive')).toHaveTextContent("false");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslationShort')).toHaveTextContent("Nikkei Student Union");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslation')).toHaveTextContent("UCSB Nikkei Student Union");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
 
 
     const deleteButton = screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-Delete-button`);
