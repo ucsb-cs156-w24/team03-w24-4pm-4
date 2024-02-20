@@ -20,6 +20,15 @@ import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage"
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
 
+import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
+import MenuItemReviewCreatePage from "main/pages/MenuItemReview/MenuItemReviewCreatePage";
+import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
+
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
+import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
+
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -69,6 +78,7 @@ function App() {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/helprequests" element={<HelpRequestIndexPage />} />
+              <Route exact path="/recommendationrequest" element={<RecommendationRequestIndexPage />} />
             </>
           )
         }
@@ -81,6 +91,12 @@ function App() {
           )
         }
          {
+              <Route exact path="/recommendationrequest/edit/:id" element={<RecommendationRequestEditPage />} />
+              <Route exact path="/recommendationrequest/create" element={<RecommendationRequestCreatePage />} />
+            </>
+          )
+        }
+        {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
@@ -94,6 +110,21 @@ function App() {
               <Route exact path="/placeholder/create" element={<PlaceholderCreatePage />} />
             </>
           )
+        }
+         {
+              hasRole(currentUser, "ROLE_USER") && (
+                <>
+                  <Route exact path="/menuitemreview" element={<MenuItemReviewIndexPage />} />
+                </>
+              )
+        }
+        {
+              hasRole(currentUser, "ROLE_ADMIN") && (
+                <>
+                  <Route exact path="/menuitemreview/edit/:id" element={<MenuItemReviewEditPage />} />
+                  <Route exact path="/menuitemreview/create" element={<MenuItemReviewCreatePage />} />
+                </>
+              )
         }
       </Routes>
     </BrowserRouter>
