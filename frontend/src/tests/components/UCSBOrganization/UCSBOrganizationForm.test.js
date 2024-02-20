@@ -90,7 +90,6 @@ describe("UCSBOrganization tests", () => {
         expect(screen.queryByText(/orgTranslation is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/inactive is required./)).not.toBeInTheDocument();
 
-
     });
 
 
