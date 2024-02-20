@@ -10,7 +10,7 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
         formState: { errors },
         handleSubmit,
     } = useForm(
-        //{ defaultValues: initialContents || {}, }
+        { defaultValues: initialContents || {}, }
     );
     // Stryker Restore All
 

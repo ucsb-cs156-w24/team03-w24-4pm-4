@@ -160,15 +160,15 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItemForm Updated - id: 17 name: Shrimp Alfredo Pasta");
+            expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItem Updated - id: 17 name: Shrimp Alfredo Pasta");
             expect(mockNavigate).toBeCalledWith({ "to": "/ucsbDiningCommonsMenuItems" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
                 diningCommonsCode: 'portola',
+                station: "Entree",
                 name: "Shrimp Alfredo Pasta",
-                station: "Entree"
             })); // posted object
 
         });

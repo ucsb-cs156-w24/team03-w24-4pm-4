@@ -36,7 +36,7 @@ export default function UCSBDiningCommonsMenuItemEditPage({storybook=false}) {
   });
 
   const onSuccess = (UCSBDiningCommonsMenuItem) => {
-    toast(`UCSBDiningCommonsMenuItems Updated - id: ${UCSBDiningCommonsMenuItem.id} name: ${UCSBDiningCommonsMenuItem.name}`);
+    toast(`UCSBDiningCommonsMenuItem Updated - id: ${UCSBDiningCommonsMenuItem.id} name: ${UCSBDiningCommonsMenuItem.name}`);
   }
 
   const mutation = useBackendMutation(
