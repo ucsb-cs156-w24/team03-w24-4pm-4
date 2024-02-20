@@ -35,6 +35,9 @@ describe("UCSBOrganization tests", () => {
         await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
         expect(screen.getByText(/orgCode/)).toBeInTheDocument();
         expect(screen.getByTestId(/UCSBOrganizationForm-orgCode/)).toHaveValue("NSU");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgTranslationShort/)).toHaveValue("Nikkei Student Union");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgTranslationn/)).toHaveValue("UCSB Nikkei Student Union");
+        expect(screen.getByTestId(/UCSBOrganizationForm-inactive/)).toHaveValue("false");
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -52,6 +55,7 @@ describe("UCSBOrganization tests", () => {
         await screen.findByText(/orgCode is required./);
         expect(screen.getByText(/orgTranslationShort is required./)).toBeInTheDocument();
         expect(screen.getByText(/orgTranslation is required./)).toBeInTheDocument();
+        expect(screen.getByText(/inactive is required./)).toBeInTheDocument();
 
     });
 
@@ -84,6 +88,7 @@ describe("UCSBOrganization tests", () => {
         expect(screen.queryByText(/orgCode is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/orgTranslationShort is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/orgTranslation is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/inactive is required./)).not.toBeInTheDocument();
     });
 
 
