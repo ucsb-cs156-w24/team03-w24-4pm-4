@@ -35,6 +35,9 @@ describe("UCSBOrganization tests", () => {
         await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
         expect(screen.getByText(/orgCode/)).toBeInTheDocument();
         expect(screen.getByTestId(/UCSBOrganizationForm-orgCode/)).toHaveValue("NSU");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgTranslationShort/)).toHaveValue("Nikkei Student Union");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgTranslationn/)).toHaveValue("UCSB Nikkei Student Union");
+        expect(screen.getByTestId(/UCSBOrganizationForm-inactive/)).toHaveValue("false");
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -77,7 +80,7 @@ describe("UCSBOrganization tests", () => {
         fireEvent.change(orgCodeField, { target: { value: 'NSU' } });
         fireEvent.change(orgTranslationShortField, { target: { value: 'Nikkei Student Union' } });
         fireEvent.change(orgTranslationField, { target: { value: 'UCSB Nikkei Student Union' } });
-        fireEvent.change(inactiveField, { target: { value: "false"} });
+        fireEvent.change(inactiveField, { target: { value: "true"} });
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());

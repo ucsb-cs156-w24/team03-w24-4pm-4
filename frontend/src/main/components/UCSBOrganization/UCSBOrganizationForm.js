@@ -85,11 +85,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                             data-testid="UCSBOrganizationForm-inactive"
                             id="inactive"
                             type="text"
-                            isInvalid={Boolean(errors.orgTranslation)}
+                            isInvalid={Boolean(errors.inactive)}
                             {...register("inactive", {required: true})}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.orgTranslation && "inactive is required."}
+                            {errors.inactive && "inactive is required."}
                         </Form.Control.Feedback>
 
                     </Form.Group>
