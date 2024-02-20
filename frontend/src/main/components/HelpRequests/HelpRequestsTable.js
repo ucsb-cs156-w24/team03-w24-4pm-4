@@ -61,11 +61,15 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, "HelpRequestsTable"));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestsTable"));
-    } 
-
+    }
+    
+    const updatedHelpRequests = helpRequests.map(obj => ({
+        ...obj,
+        "solved": String(obj["solved"])
+    }));
 
     return <OurTable
-        data={helpRequests}
+        data={updatedHelpRequests}
         columns={columns}
         testid={"HelpRequestsTable"}
     />;

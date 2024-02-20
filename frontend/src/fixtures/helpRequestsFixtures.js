@@ -16,7 +16,7 @@ const helpRequestsFixtures = {
             "tableOrBreakoutRoom": "string",
             "requestTime": "2024-02-14T02:13:33",
             "explanation": "string",
-            "solved": "true"
+            "solved": true
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@ const helpRequestsFixtures = {
             "tableOrBreakoutRoom": "sstring",
             "requestTime": "2024-03-14T02:13:23",
             "explanation": "strings",
-            "solved": "false"
+            "solved": false
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@ const helpRequestsFixtures = {
             "tableOrBreakoutRoom": "strasing",
             "requestTime": "2024-02-14T02:13:13",
             "explanation": "strisdang",
-            "solved": "true"
+            "solved": true
         }
             
     ]
