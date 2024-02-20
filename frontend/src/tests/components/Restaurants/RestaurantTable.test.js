@@ -172,4 +172,5 @@ describe("RestaurantTable tests", () => {
     // act - click the delete button
     fireEvent.click(deleteButton);
   });
+
 });
