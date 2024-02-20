@@ -118,4 +118,27 @@ describe("UserTable tests", () => {
 
   });
 
+  test("Delete button calls delete callback", async () => {
+
+    const currentUser = currentUserFixtures.adminUser;
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UCSBOrganizationTable orgs={ucsbOrganizationFixtures.threeOrganizations} currentUser={currentUser} />
+        </MemoryRouter>
+      </QueryClientProvider>
+
+    );
+
+    await waitFor(() => { expect(screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-orgCode`)).toHaveTextContent("NSU"); });
+    
+
+    const deleteButton = screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+
+    fireEvent.click(deleteButton);
+
+  });
+
 });
