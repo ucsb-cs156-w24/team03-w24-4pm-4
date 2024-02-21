@@ -1,14 +1,12 @@
 const ucsbOrganizationFixtures = {
     oneOrganization:
-    [
         {
             "id": 1,
             "orgCode": "NSU",
             "orgTranslationShort": "Nikkei Student Union",
             "orgTranslation": "UCSB Nikkei Student Union",
             "inactive": false
-        }
-    ],
+        },
 
     threeOrganizations:
     [
