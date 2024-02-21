@@ -155,8 +155,7 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     fireEvent.click(editButton);
 
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbDiningCommonsMenuItems/edit/1'));
-
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdiningcommonsmenuitems/edit/1'));
   });
 
   test("Delete button calls delete callback", async () => {
