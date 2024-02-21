@@ -44,7 +44,13 @@ describe("UserTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("NSU");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslationShort')).toHaveTextContent("Nikkei Student Union");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslation')).toHaveTextContent("UCSB Nikkei Student Union");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("TT");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-1-col-orgTranslationShort')).toHaveTextContent("Theta Tau");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-1-col-orgTranslation')).toHaveTextContent("UCSB Theta Tau");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-1-col-inactive')).toHaveTextContent("true");
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
@@ -116,7 +122,7 @@ describe("UserTable tests", () => {
     await waitFor(() => { expect(screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-orgCode`)).toHaveTextContent("NSU"); });
     expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslationShort')).toHaveTextContent("Nikkei Student Union");
     expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslation')).toHaveTextContent("UCSB Nikkei Student Union");
-    //expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
 
     const editButton = screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -143,7 +149,7 @@ describe("UserTable tests", () => {
     await waitFor(() => { expect(screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-orgCode`)).toHaveTextContent("NSU"); });
     expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslationShort')).toHaveTextContent("Nikkei Student Union");
     expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-orgTranslation')).toHaveTextContent("UCSB Nikkei Student Union");
-    //expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
+    expect(screen.getByTestId('UCSBOrganizationTable-cell-row-0-col-inactive')).toHaveTextContent("false");
 
 
     const deleteButton = screen.getByTestId(`UCSBOrganizationTable-cell-row-0-col-Delete-button`);
@@ -152,5 +158,4 @@ describe("UserTable tests", () => {
     fireEvent.click(deleteButton);
 
   });
-
 });

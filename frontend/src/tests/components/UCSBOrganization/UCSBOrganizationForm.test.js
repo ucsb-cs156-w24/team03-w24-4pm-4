@@ -80,7 +80,7 @@ describe("UCSBOrganization tests", () => {
         fireEvent.change(orgCodeField, { target: { value: 'NSU' } });
         fireEvent.change(orgTranslationShortField, { target: { value: 'Nikkei Student Union' } });
         fireEvent.change(orgTranslationField, { target: { value: 'UCSB Nikkei Student Union' } });
-        fireEvent.change(inactiveField, { target: { value: "true"} });
+        fireEvent.change(inactiveField, { target: { value: "false" } });
         fireEvent.click(submitButton);
 
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
