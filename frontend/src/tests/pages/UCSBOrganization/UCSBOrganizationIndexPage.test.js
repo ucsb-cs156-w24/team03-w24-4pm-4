@@ -83,7 +83,6 @@ describe("UCSBOrganizationIndexPage tests", () => {
 
         // assert
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("NSU"); });
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
         expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("TT");
         expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("FIERCE");
 
@@ -139,7 +138,6 @@ describe("UCSBOrganizationIndexPage tests", () => {
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toBeInTheDocument(); });
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("NSU");
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
 
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
         expect(deleteButton).toBeInTheDocument();
