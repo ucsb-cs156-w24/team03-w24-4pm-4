@@ -59,7 +59,7 @@ describe("UCSBDiningCommonesMenuItemCreatePage tests", () => {
             name: "Chicken Alfredo Pasta"
         }
 
-        axiosMock.onPost("/api/ucsbDiningCommonsMenuItems/post").reply(202, ucsbDiningCommonsMenuItem);
+        axiosMock.onPost("/api/ucsbdiningcommonsmenuitems/post").reply(202, ucsbDiningCommonsMenuItem);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -96,7 +96,7 @@ describe("UCSBDiningCommonesMenuItemCreatePage tests", () => {
         });
 
         expect(mockToast).toBeCalledWith("New UCSBDiningCommonsMenuItem Created - id: 17 dining commons code: ortega station: Entree Specials name: Chicken Alfredo Pasta");
-        expect(mockNavigate).toBeCalledWith({"to": "/ucsbDiningCommonsMenuItems"})
+        expect(mockNavigate).toBeCalledWith({"to": "/ucsbdiningcommonsmenuitems"})
         
     });
 });

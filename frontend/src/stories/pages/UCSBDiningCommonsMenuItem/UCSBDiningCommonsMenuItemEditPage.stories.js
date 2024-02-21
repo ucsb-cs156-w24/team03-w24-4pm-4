@@ -23,10 +23,10 @@ Default.parameters = {
         rest.get('/api/systemInfo', (_req, res, ctx) => {
             return res(ctx.json(systemInfoFixtures.showingNeither));
         }),
-        rest.get('/api/ucsbDiningCommonsMenuItems', (_req, res, ctx) => {
+        rest.get('/api/ucsbdiningcommonsmenuitems', (_req, res, ctx) => {
             return res(ctx.json(ucsbDiningCommonsMenuItemsFixtures.threeMenuItem[0]));
         }),
-        rest.put('/api/ucsbDiningCommonsMenuItems', async (req, res, ctx) => {
+        rest.put('/api/ucsbdiningcommonsmenuitems', async (req, res, ctx) => {
             var reqBody = await req.text();
             window.alert("PUT: " + req.url + " and body: " + reqBody);
             return res(ctx.status(200),ctx.json({}));

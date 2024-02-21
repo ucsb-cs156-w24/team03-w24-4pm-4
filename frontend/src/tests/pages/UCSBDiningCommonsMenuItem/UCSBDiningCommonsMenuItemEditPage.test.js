@@ -44,7 +44,7 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/ucsbDiningCommonsMenuItems", { params: { id: 17 } }).timeout();
+            axiosMock.onGet("/api/ucsbdiningcommonsmenuitems", { params: { id: 17 } }).timeout();
         });
 
         const queryClient = new QueryClient();
@@ -75,13 +75,13 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
             axiosMock.resetHistory();
             axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
-            axiosMock.onGet("/api/ucsbDiningCommonsMenuItems", { params: { id: 17 } }).reply(200, {
+            axiosMock.onGet("/api/ucsbdiningcommonsmenuitems", { params: { id: 17 } }).reply(200, {
                 id: 17,
                 diningCommonsCode: "ortega",
                 station: "Entree Specials",
                 name: "Chicken Alfredo Pasta"
             });
-            axiosMock.onPut('/api/ucsbDiningCommonsMenuItems').reply(200, {
+            axiosMock.onPut('/api/ucsbdiningcommonsmenuitems').reply(200, {
                 id: "17",
                 diningCommonsCode: "portola",
                 station: "Entree",
@@ -161,7 +161,7 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
 
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItem Updated - id: 17 name: Shrimp Alfredo Pasta");
-            expect(mockNavigate).toBeCalledWith({ "to": "/ucsbDiningCommonsMenuItems" });
+            expect(mockNavigate).toBeCalledWith({ "to": "/ucsbdiningcommonsmenuitems" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });

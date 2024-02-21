@@ -44,7 +44,7 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
     test("Renders with Create Button for admin user", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbDiningCommonsMenuItems/all").reply(200, []);
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitems/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -58,14 +58,14 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
             expect(screen.getByText(/Create UCSBDiningCommonsMenuItem/)).toBeInTheDocument();
         })
         const button = screen.getByText(/Create UCSBDiningCommonsMenuItem/);
-        expect(button).toHaveAttribute("href", "/ucsbDiningCommonsMenuItems/create");
+        expect(button).toHaveAttribute("href", "/ucsbdiningcommonsmenuitems/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
     test("Renders three dates correctly for regular user", async () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbDiningCommonsMenuItems/all").reply(200, ucsbDiningCommonsMenuItemsFixtures.threeMenuItem);
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitems/all").reply(200, ucsbDiningCommonsMenuItemsFixtures.threeMenuItem);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -86,7 +86,7 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         // arrange
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbDiningCommonsMenuItems/all").timeout();
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitems/all").timeout();
         const restoreConsole = mockConsole();
 
         render(
@@ -101,7 +101,7 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(1); });
 
         const errorMessage = console.error.mock.calls[0][0];
-        expect(errorMessage).toMatch("Error communicating with backend via GET on /api/ucsbDiningCommonsMenuItems/all");
+        expect(errorMessage).toMatch("Error communicating with backend via GET on /api/ucsbdiningcommonsmenuitems/all");
         restoreConsole();
 
         expect(screen.queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
@@ -111,8 +111,8 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         // arrange
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbDiningCommonsMenuItems/all").reply(200, ucsbDiningCommonsMenuItemsFixtures.threeMenuItem);
-        axiosMock.onDelete("/api/ucsbDiningCommonsMenuItems").reply(200, "UCSBDiningCommonsMenuItems with id 1 was deleted");
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitems/all").reply(200, ucsbDiningCommonsMenuItemsFixtures.threeMenuItem);
+        axiosMock.onDelete("/api/ucsbdiningcommonsmenuitems").reply(200, "UCSBDiningCommonsMenuItems with id 1 was deleted");
 
         // act
         render(
@@ -137,6 +137,10 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
         // assert
         await waitFor(() => { expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItems with id 1 was deleted") });
 
+        await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
+        expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitems");
+        expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitems");
+        expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
     });
 
 });
